@@ -70,3 +70,22 @@ void convert_and_print(long num, int base) {
     }
     putchar(digits[num % base]);
 }
+
+void convert_range(long start, long finish, int base) {
+    for (long i = start; i <= finish; i++) {
+        convert_and_print(i, base);
+    }
+}
+
+void convert_stdin(int base) {
+    long number;
+    while (scanf("%ld", &number) == 1) {
+        convert_and_print(number, base);
+        //adds a new line after each number
+        putchar('\n');
+    }
+    if (!feof(stdin)) {
+        fprintf(stderr, "Error: Non long int token encountered.\n");
+        exit(1);
+    }
+}
