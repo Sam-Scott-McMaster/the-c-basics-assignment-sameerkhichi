@@ -55,3 +55,18 @@ int identify_args(int argc, char *argv[], int *base, long *start, long *finish) 
     }
     return 0;
 }
+
+void convert_and_print(long num, int base) {
+
+    const char digits[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    if (num < 0) {
+        putchar('-');
+        num = -num; 
+    }
+
+    if (num >= base) {
+        convert_and_print(num / base, base);
+    }
+    putchar(digits[num % base]);
+}

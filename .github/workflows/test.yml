@@ -13,7 +13,7 @@ jobs:
       - name: test
         run: |
           make convert
-          ./test_script >test_results.txt
+          ./test_script > test_results.txt
           gcov main.c > main_coverage.txt
           gcov convert.c > convert_coverage.txt
       
