@@ -12,10 +12,10 @@ jobs:
 
       - name: test
         run: |
-          make ctest
+          make convert
           ./test_script >test_results.txt
-          gcov ctest-main.c > main_coverage.txt
-          gcov ctest-convert.c > convert_coverage.txt
+          gcov main.c > main_coverage.txt
+          gcov convert.c > convert_coverage.txt
       
       - name: upload test results
         uses: actions/upload-artifact@v4

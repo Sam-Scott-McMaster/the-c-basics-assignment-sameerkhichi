@@ -1,5 +1,3 @@
 convert: main.c convert.c convert.h
-	gcc -o convert main.c convert.c
+	gcc -o convert main.c convert.c -coverage -g
 
-ctest: main.c convert.c convert.h
-	gcc -o ctest main.c convert.c -Wall -Werror --coverage

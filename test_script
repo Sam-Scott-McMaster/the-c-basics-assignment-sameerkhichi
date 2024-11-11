@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# A simple framework for regression testing the convert (ctest) script
+# A simple framework for regression testing the convert script
 #
 # Returns the number of failed test cases.
 #
@@ -75,9 +75,10 @@ test() {
     echo "TC $tc Passed"
 }
 
-test './ctest' 'inp1.txt' 'ex_out1.txt' 'empty.txt'
-test './ctest -b 2' 'inp2.txt' 'ex_out2.txt' 'empty.txt'
-test './ctest -a' 'empty.txt' 'empty.txt' 'usage.txt'
+# Example test cases (replace `./convert` with the actual command to test your convert program)
+test './convert' 'inp1.txt' 'ex_out1.txt' 'empty.txt'
+test './convert -b 2' 'inp2.txt' 'ex_out2.txt' 'empty.txt'
+test './convert -a' 'empty.txt' 'empty.txt' 'usage.txt'
 
 # clean up
 rm test_err.txt test_out.txt
