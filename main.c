@@ -12,10 +12,11 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    if (range_mode) {
+    if (range_mode){
         //converts for the whole range
         convert_range(start, finish, base); 
-    } else {
+    } 
+    else{
         //converts from standard input
         convert_stdin(base);
     }

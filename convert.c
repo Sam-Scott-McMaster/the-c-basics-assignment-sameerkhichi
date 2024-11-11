@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "convert.h"
 
 void print_usage(){
     fprintf(stderr, "Usage: convert [-b BASE] [-r START FINISH]\n");
@@ -11,7 +12,7 @@ void print_usage(){
 void print_help(){
     printf("Convert Utility Help:\n");
     printf("Usage: convert [-b BASE] [-r START FINISH]\n");
-    printf("Flags: \n");
+    printf("Flags:\n");
     printf(" -b BASE Specify base for the conversion (1 < BASE < 37). The default base is 16.\n");
     printf(" -r START FINISH Convert a range of numbers from START to FINISH.\n");
     printf("If no range is specified, the convert utility reads from standard input until end of file.\n");
@@ -24,6 +25,11 @@ int identify_args(int argc, char *argv[], int *base, long *start, long *finish, 
 
     for (int i = 1; i < argc; i++) {  
 
+        if (strcmp(argv[i], "--help") == 0) {
+            print_help();
+            exit(0);
+        }
+        
         if (strcmp(argv[i], "-b") == 0){  
             if (i + 1 < argc) { 
                 *base = atoi(argv[++i]); 
@@ -45,6 +51,9 @@ int identify_args(int argc, char *argv[], int *base, long *start, long *finish, 
                 //setting the start and finish values
                 *start = atol(argv[++i]);  
                 *finish = atol(argv[++i]);  
+
+                *range_mode = 1;
+
 
             } 
             else{
@@ -81,6 +90,7 @@ void convert_and_print(long num, int base){
 void convert_range(long start, long finish, int base){
     for (long i = start; i <= finish; i++){
         convert_and_print(i, base);
+         putchar('\n');
     }
 }
 
