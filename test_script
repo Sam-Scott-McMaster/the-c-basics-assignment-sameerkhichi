@@ -77,23 +77,23 @@ test() {
 
 # Example test cases (replace `./convert` with the actual command to test your convert program)
 #conversion with regular base
-test './convert' 'inp1.txt' 'ex_out1.txt' 'empty.txt'
+test './ctest' 'inp1.txt' 'ex_out1.txt' 'empty.txt'
 #diff -u test_out.txt ex_out1.txt
 #cat -A test_out.txt
 #cat -A ex_out1.txt
-test './convert -b 2' 'inp2.txt' 'ex_out2.txt' 'empty.txt'
-test './convert -a' 'empty.txt' 'empty.txt' 'usage.txt'
+test './ctest -b 2' 'inp2.txt' 'ex_out2.txt' 'empty.txt'
+test './ctest -a' 'empty.txt' 'empty.txt' 'usage.txt'
 
 #conversion with a specified base of binary
-test './convert -b 2' 'inp2.txt' 'ex_out2.txt' 'empty.txt'
+test './ctest -b 2' 'inp2.txt' 'ex_out2.txt' 'empty.txt'
 #range conversion in base 10
-test './convert -b 10 -r 1 5' 'empty.txt' 'ex_out3_range10.txt' 'empty.txt'
+test './ctest -b 10 -r 1 5' 'empty.txt' 'ex_out3_range10.txt' 'empty.txt'
 #base specified out of range
-test './convert -b 40' 'empty.txt' 'empty.txt' 'usage.txt'
+test './ctest -b 40' 'empty.txt' 'empty.txt' 'usage.txt'
 #non-integer input
-test './convert -b 16' 'non_int.txt' 'empty.txt' 'error_non_int.txt'
+test './ctest -b 16' 'non_int.txt' 'empty.txt' 'error_non_int.txt'
 #help flag used 
-test './convert --help' 'empty.txt' 'help.txt' 'empty.txt'
+test './ctest --help' 'empty.txt' 'help.txt' 'empty.txt'
 
 # clean up
 rm test_err.txt test_out.txt
