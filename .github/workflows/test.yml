@@ -11,10 +11,11 @@ jobs:
       - uses: actions/checkout@v4  # Check out the repository
 
       - name: test
-        run: make ctest
-        ./test_script >test_results.txt
-        gcov ctest-main.c > main_coverage.txt
-        gcov ctest-convert.c > convert_coverage.txt 
+        run: |
+          make ctest
+          ./test_script >test_results.txt
+          gcov ctest-main.c > main_coverage.txt
+          gcov ctest-convert.c > convert_coverage.txt
       
       - name: upload test results
         uses: actions/upload-artifact@v4
@@ -31,5 +32,5 @@ jobs:
       - name: upload convert coverage report # Subtask name
         uses: actions/upload-artifact@v4  # This is an upload task
         with:
-          name: Conver coverage report  # Artifact name
+          name: Convert Coverage Report  # Artifact name
           path: ./convert_coverage.txt  # Path to the test results file
