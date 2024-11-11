@@ -12,7 +12,7 @@ jobs:
 
       - name: test
         run: make ctest
-        ./test_script > test_results.txt
+        ./test_script >test_results.txt
         gcov ctest-main.c > main_coverage.txt
         gcov ctest-convert.c > convert_coverage.txt 
       
