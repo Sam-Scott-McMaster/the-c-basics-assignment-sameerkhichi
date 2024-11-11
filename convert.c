@@ -43,7 +43,6 @@ int identify_args(int argc, char *argv[], int *base, long *start, long *finish) 
                 //setting the start and finish values
                 *start = atol(argv[++i]);  
                 *finish = atol(argv[++i]);  
-                *range_mode = 1;
 
             } 
             else {
