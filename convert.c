@@ -50,7 +50,12 @@ int identify_args(int argc, char *argv[], int *base, long *start, long *finish, 
             else{
                 return -1; 
             }
-        } 
+        }
+
+        else if (argv[i][0] == '-'){ 
+            return -1;
+        }
+
         else{
             return -1;
         }
