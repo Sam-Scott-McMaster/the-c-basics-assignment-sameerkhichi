@@ -20,7 +20,7 @@ void print_help() {
     printf("  convert -b 2 -r -3 3    Convert numbers from -3 to 3 in base 2 (binary).\n");
 }
 
-int identify_args(int argc, char *argv[], int *base, long *start, long *finish, int *range_mode) {
+int identify_args(int argc, char *argv[], int *base, long *start, long *finish) {
 
     for (int i = 1; i < argc; i++) {  
 
