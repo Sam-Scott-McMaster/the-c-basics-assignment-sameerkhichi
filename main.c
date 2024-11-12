@@ -3,10 +3,13 @@
 #include "convert.h"
 
 int main(int argc, char *argv[]) {
+    //default base was 16
     int base = 16;
     long start = 0, finish = 0;
+    //variable to know which conversion function to call, updated by identify_args
     int range_mode = 0;
 
+    //go through the command line inputs and set the utility up with info
     if (identify_args(argc, argv, &base, &start, &finish, &range_mode) != 0) {
         print_usage();
         exit(1);
