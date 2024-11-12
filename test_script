@@ -115,6 +115,9 @@ test './ctest -b 16 -r 8 8' 'empty.txt' 'ex_out_single_8.txt' 'empty.txt'
 test './ctest -b 16' 'empty.txt' 'empty.txt' 'empty.txt'
 #Handling conversion in standard input with non-numerical inputs
 test './ctest -b 10' 'non_numeric.txt' 'empty.txt' 'error_non_int.txt'
+#extremem negative values
+test './ctest -r -9223372036854775808 -9223372036854775806' 'empty.txt' 'ex_out_extreme_neg.txt' 'empty.txt'
+
 
 
 
