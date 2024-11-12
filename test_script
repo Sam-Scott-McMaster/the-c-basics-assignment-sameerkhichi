@@ -97,6 +97,17 @@ test './ctest -b 8' 'empty.txt' 'empty.txt' 'empty.txt'
 test './ctest -z' 'empty.txt' 'empty.txt' 'usage.txt'
 #no input base conversion
 test './ctest -b 8' 'empty.txt' 'empty.txt' 'empty.txt'
+#testing for a missing value after -b 
+test './ctest -b' 'empty.txt' 'empty.txt' 'usage.txt'
+#missing values after -r like without start and finish
+test './ctest -r' 'empty.txt' 'empty.txt' 'usage.txt'
+#range starts higher than the end
+test './ctest -b 10 -r 10 5' 'empty.txt' 'empty.txt' 'empty.txt'
+#testing the functionality of the -b taking only the last one
+test './ctest -b 8 -b 16' 'inp1.txt' 'ex_out1_base16.txt' 'empty.txt'
+#testing how many -r values the utility can take, and only takes the last one
+test './ctest -r 1 5 -r 6 10' 'empty.txt' 'ex_out1_range6_10.txt' 'empty.txt'
+
 
 
 # clean up
