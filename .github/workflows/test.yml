@@ -10,12 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4  # Check out the repository
 
-      - name: make converter
-        run: make convert;
+      - name: compile ctest with coverage
+        run: make ctest;
 
-      - name: test
+      - name: test ctest
         run: |
-          make ctest;
           ./test_script > test_results.txt;
           gcov main.c > main_coverage.txt;
           gcov convert.c > convert_coverage.txt;
